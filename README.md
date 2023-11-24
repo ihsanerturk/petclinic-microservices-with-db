@@ -1360,9 +1360,9 @@ git push --set-upstream origin feature/msp-16
 ```yml
 - job name: test-creating-qa-automation-infrastructure
 - job type: Freestyle project
-- GitHub project: https://github.com/[your-github-account]/petclinic-microservices
+- GitHub project: https://github.com/ihsanerturk/petclinic-microservices-with-db.git
 - Source Code Management: Git
-      Repository URL: https://github.com/[your-github-account]/petclinic-microservices.git
+      Repository URL: https://github.com/ihsanerturk/petclinic-microservices-with-db.git
 - Branches to build:
       Branch Specifier (blank for 'any'): */feature/msp-16
 - Build Environment: Add timestamps to the Console Output
@@ -1373,7 +1373,7 @@ git push --set-upstream origin feature/msp-16
 ```bash
 echo $PATH
 whoami
-PATH="$PATH:/usr/local/bin"
+PATH="$PATH:/usr/local/bin:/usr/bin"
 python3 --version
 pip3 --version
 ansible --version
@@ -1406,7 +1406,7 @@ ANS_KEYPAIR="petclinic-ansible-test-dev.key"
 AWS_REGION="us-east-1"
 cd infrastructure/dev-k8s-terraform
 sed -i "s/clarus/$ANS_KEYPAIR/g" main.tf
-terraform init
+terraform init 
 terraform apply -auto-approve -no-color
 ```
   * Click `Save`
